@@ -14,8 +14,9 @@ let preparedTimes = prepareTimes(INPUT_DATA); //Превращаем введе�
 function prepareTimes (data) {
     let times = [];
     data.forEach(data => {
+
         let stringSplit = (data.split('-')); //Разбили строку в массив, передаём в обратном порядке в конструктор даты
-        let date = new Date(stringSplit[4], stringSplit[3], stringSplit[2] , stringSplit[1], stringSplit[0]);
+        let date = new Date(stringSplit[4], stringSplit[3] - 1, stringSplit[2] , stringSplit[1], stringSplit[0]);
         let time = date.getTime();//Переводим дату в миллисекунды. Это нужно для нахождения разницы между двумя датами.
         // Не нашел иного пути
         times.push(time);
