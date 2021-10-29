@@ -1,9 +1,9 @@
 const colors = require('colors');
 const[start, end] = process.argv.slice(2);
-
+let simpleNumbers = [];
 
 if((Number.isInteger(+start) && start > 0) && (Number.isInteger(+end) && end > 0) && +end > +start) {
-    let simpleNumbers = [];
+
     findSimpleNumbersInRange(start, end);
     printTrafficLights(simpleNumbers);
 }
