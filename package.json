@@ -9,11 +9,14 @@
     "hw2task1": "node lesson2/task1.js",
     "hw2task2": "node lesson2/task2.js",
     "hw3task1": "node lesson3/task1.js",
+    "hw4task1": "node lesson4/task1.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Cheglok M.S.",
   "license": "ISC",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "inquirer": "^8.2.0",
+    "yargs": "^17.2.1"
   }
 }
