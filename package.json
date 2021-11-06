@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "GB lesson1 Cheglok M.S.",
   "main": "node_modules/lesson1/index.js",
+  "bin": {
+    "freader": "cli.js"
+  },
   "scripts": {
     "dev": "node lesson1/task1.js",
     "lesson1": "node lesson1/task1.js",
