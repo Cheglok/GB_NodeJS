@@ -2,7 +2,6 @@ const socket = require('socket.io');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-var Moniker = require('moniker');
 
 const server = http
     .createServer(((req, res) => {

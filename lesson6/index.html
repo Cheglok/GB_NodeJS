@@ -29,8 +29,8 @@
         submitForm();
     }
 
-    input.onkeypress = (event) => {
-        if(event.keyCode === 13) {
+    input.onkeydown = (event) => {
+        if(event.code === 'Enter') {
             submitForm();
         }
     }
