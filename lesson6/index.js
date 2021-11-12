@@ -13,21 +13,26 @@ const server = http
     }));
 
 const io = socket(server);
-io.on('connection', client => {
-    client.nickname = Moniker.choose();
-    client.broadcast.emit('connection-msg', client.nickname);
-    client.emit('connection-msg', client.nickname);
-    client.on('client-msg', data => {
+io.on('connection', socket => {
+    // socket.nickname = Moniker.choose();
+    // socket.broadcast.emit('connection-msg', socket.nickname);
+    // socket.emit('connection-msg', socket.nickname);
+    socket.on('newUser', function(name){
+        socket.nickname = name;
+        socket.broadcast.emit('connection-msg', socket.nickname);
+        socket.emit('connection-msg', socket.nickname);
+    });
+    socket.on('client-msg', data => {
         const payload = {
             message: data.message,
-            nickname: client.nickname,
+            nickname: socket.nickname,
         };
 
-        client.broadcast.emit('server-msg', payload);
-        client.emit('server-msg', payload);
+        socket.broadcast.emit('server-msg', payload);
+        socket.emit('server-msg', payload);
     });
-    client.on('disconnect', () => {
-        client.broadcast.emit('disconnection-msg', client.nickname);
+    socket.on('disconnect', () => {
+        socket.broadcast.emit('disconnection-msg', socket.nickname);
     })
 });
 
